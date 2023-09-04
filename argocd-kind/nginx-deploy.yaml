@@ -1,9 +1,9 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  name: nginx-deployment
   labels:
     app: nginx
-  name: nginx
 spec:
   selector:
     matchLabels:
@@ -14,5 +14,7 @@ spec:
         app: nginx
     spec:
       containers:
-        - image: nginx
-          name: nginx
+      - name: nginx
+        image: nginx
+        ports:
+        - containerPort: 80
